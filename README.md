@@ -37,7 +37,7 @@ fmt.Println(slices.Contains(slice, v))
 
 GreaterOf returns a greater function for the given slice type for slice sorting.
 
-Supports: bool, string, int, int8, int16, int32, int64, uint, uint8, uint16, uint32, uint64, float32, float64
+Supports: string, int, int8, int16, int32, int64, uint, uint8, uint16, uint32, uint64, float32, float64
 
 ```go
 slice := []string{"foo", "bar"}
@@ -51,7 +51,7 @@ fmt.Println(slice)
 
 LesserOf returns a lesser function for the given slice type for slice sorting.
 
-Supports: bool, string, int, int8, int16, int32, int64, uint, uint8, uint16, uint32, uint64, float32, float64
+Supports: string, int, int8, int16, int32, int64, uint, uint8, uint16, uint32, uint64, float32, float64
 
 ```go
 slice := []string{"foo", "bar"}
