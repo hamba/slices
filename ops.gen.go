@@ -328,3 +328,447 @@ func float64Greater(ptr unsafe.Pointer) func(i, j int) bool {
 		return v[i] > v[j]
 	}
 }
+
+// Intersect
+func stringIntersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]string, len(*(*[]string)(sptr)))
+	copy(slice, *(*[]string)(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]string)(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+
+func intIntersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]int, len(*(*[]int)(sptr)))
+	copy(slice, *(*[]int)(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]int)(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+
+func int8Intersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]int8, len(*(*[]int8)(sptr)))
+	copy(slice, *(*[]int8)(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]int8)(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+
+func int16Intersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]int16, len(*(*[]int16)(sptr)))
+	copy(slice, *(*[]int16)(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]int16)(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+
+func int32Intersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]int32, len(*(*[]int32)(sptr)))
+	copy(slice, *(*[]int32)(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]int32)(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+
+func int64Intersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]int64, len(*(*[]int64)(sptr)))
+	copy(slice, *(*[]int64)(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]int64)(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+
+func uintIntersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]uint, len(*(*[]uint)(sptr)))
+	copy(slice, *(*[]uint)(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]uint)(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+
+func uint8Intersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]uint8, len(*(*[]uint8)(sptr)))
+	copy(slice, *(*[]uint8)(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]uint8)(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+
+func uint16Intersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]uint16, len(*(*[]uint16)(sptr)))
+	copy(slice, *(*[]uint16)(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]uint16)(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+
+func uint32Intersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]uint32, len(*(*[]uint32)(sptr)))
+	copy(slice, *(*[]uint32)(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]uint32)(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+
+func uint64Intersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]uint64, len(*(*[]uint64)(sptr)))
+	copy(slice, *(*[]uint64)(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]uint64)(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+
+func float32Intersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]float32, len(*(*[]float32)(sptr)))
+	copy(slice, *(*[]float32)(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]float32)(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+
+func float64Intersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]float64, len(*(*[]float64)(sptr)))
+	copy(slice, *(*[]float64)(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]float64)(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+
+// Except
+func stringExcept(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]string, len(*(*[]string)(sptr)))
+	copy(s, *(*[]string)(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range *(*[]string)(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}
+
+func intExcept(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]int, len(*(*[]int)(sptr)))
+	copy(s, *(*[]int)(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range *(*[]int)(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}
+
+func int8Except(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]int8, len(*(*[]int8)(sptr)))
+	copy(s, *(*[]int8)(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range *(*[]int8)(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}
+
+func int16Except(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]int16, len(*(*[]int16)(sptr)))
+	copy(s, *(*[]int16)(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range *(*[]int16)(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}
+
+func int32Except(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]int32, len(*(*[]int32)(sptr)))
+	copy(s, *(*[]int32)(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range *(*[]int32)(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}
+
+func int64Except(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]int64, len(*(*[]int64)(sptr)))
+	copy(s, *(*[]int64)(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range *(*[]int64)(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}
+
+func uintExcept(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]uint, len(*(*[]uint)(sptr)))
+	copy(s, *(*[]uint)(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range *(*[]uint)(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}
+
+func uint8Except(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]uint8, len(*(*[]uint8)(sptr)))
+	copy(s, *(*[]uint8)(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range *(*[]uint8)(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}
+
+func uint16Except(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]uint16, len(*(*[]uint16)(sptr)))
+	copy(s, *(*[]uint16)(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range *(*[]uint16)(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}
+
+func uint32Except(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]uint32, len(*(*[]uint32)(sptr)))
+	copy(s, *(*[]uint32)(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range *(*[]uint32)(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}
+
+func uint64Except(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]uint64, len(*(*[]uint64)(sptr)))
+	copy(s, *(*[]uint64)(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range *(*[]uint64)(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}
+
+func float32Except(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]float32, len(*(*[]float32)(sptr)))
+	copy(s, *(*[]float32)(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range *(*[]float32)(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}
+
+func float64Except(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]float64, len(*(*[]float64)(sptr)))
+	copy(s, *(*[]float64)(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range *(*[]float64)(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}

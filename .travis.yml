@@ -12,6 +12,7 @@ cache:
     - $GOPATH/pkg/mod
 
 before_install:
+  - go generate ./... && git diff --exit-code; code=$?; (exit $code)
   - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $GOPATH/bin
   - go mod download
   - go get github.com/mattn/goveralls
