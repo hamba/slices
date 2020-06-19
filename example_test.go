@@ -30,3 +30,19 @@ func ExampleLesserOf() {
 	fmt.Println(slice)
 	// Outputs: [foo baz bar]
 }
+
+func ExampleIntersect() {
+	slice := []string{"foo", "bar", "baz", "bat"}
+	other := []string{"bar", "baz", "test"}
+
+	fmt.Println(slices.Intersect(slice, other))
+	// Outputs: [bar baz]
+}
+
+func ExampleExcept() {
+	slice := []string{"foo", "bar", "baz", "bat"}
+	other := []string{"bar", "baz", "test"}
+
+	fmt.Println(slices.Except(slice, other))
+	// Outputs: [foo bat]
+}

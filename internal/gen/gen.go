@@ -38,7 +38,7 @@ func {{ $type }}Lesser(ptr unsafe.Pointer) func(i, j int) bool {
 {{end -}}
 
 // GreaterOf
-{{- range $i, $type := .lesserOf}}
+{{- range $i, $type := .greaterOf}}
 func {{ $type }}Greater(ptr unsafe.Pointer) func(i, j int) bool {
 	return func(i, j int) bool {
 		v := *(*[]{{ $type }})(ptr)
@@ -46,19 +46,61 @@ func {{ $type }}Greater(ptr unsafe.Pointer) func(i, j int) bool {
 	}
 }
 {{end -}}
+
+// Intersect
+{{- range $i, $type := .intersect}}
+func {{ $type }}Intersect(sptr, optr unsafe.Pointer) interface{} {
+	slice := make([]{{ $type }}, len(*(*[]{{ $type }})(sptr)))
+	copy(slice, *(*[]{{ $type }})(sptr))
+	for i := 0; i < len(slice); i++ {
+		found := false
+		for _, v := range *(*[]{{ $type }})(optr) {
+			if v == slice[i] {
+				found = true
+				break
+			}
+		}
+		if !found {
+			slice = append(slice[:i], slice[i+1:]...)
+			i--
+		}
+	}
+	return slice
+}
+{{end -}}
+
+// Except
+{{- range $i, $type := .except}}
+func {{ $type }}Except(sptr, optr unsafe.Pointer) interface{} {
+	s := make([]{{ $type }}, len(*(*[]{{ $type }})(sptr)))
+	copy(s, *(*[]{{ $type }})(sptr))
+	for i := 0; i < len(s); i++ {
+		for _, v := range  *(*[]{{ $type }})(optr) {
+			if v == s[i] {
+				s = append(s[:i], s[i+1:]...)
+				i--
+				break
+			}
+		}
+	}
+	return s
+}
+{{end -}}
+
 `
 
 func main() {
-	base := template.New("gen")
-	parse, err := base.Parse(tmpl)
+	parse, err := template.New("gen").Parse(tmpl)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	ops := map[string][]string {
-		"contains": {"bool", "string", "int", "int8", "int16", "int32", "int64", "uint", "uint8", "uint16", "uint32", "uint64", "float32", "float64"},
-		"lesserOf": {"string", "int", "int8", "int16", "int32", "int64", "uint", "uint8", "uint16", "uint32", "uint64", "float32", "float64"},
+	ops := map[string][]string{
+		"contains":  {"bool", "string", "int", "int8", "int16", "int32", "int64", "uint", "uint8", "uint16", "uint32", "uint64", "float32", "float64"},
+		"lesserOf":  {"string", "int", "int8", "int16", "int32", "int64", "uint", "uint8", "uint16", "uint32", "uint64", "float32", "float64"},
 		"greaterOf": {"string", "int", "int8", "int16", "int32", "int64", "uint", "uint8", "uint16", "uint32", "uint64", "float32", "float64"},
+		"intersect": {"string", "int", "int8", "int16", "int32", "int64", "uint", "uint8", "uint16", "uint32", "uint64", "float32", "float64"},
+		"except":    {"string", "int", "int8", "int16", "int32", "int64", "uint", "uint8", "uint16", "uint32", "uint64", "float32", "float64"},
 	}
 
 	b := &bytes.Buffer{}
@@ -66,7 +108,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// gofmt
 	source, err := format.Source(b.Bytes())
 	if err != nil {
 		log.Fatal(err)
