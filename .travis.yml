@@ -12,12 +12,12 @@ cache:
     - $GOPATH/pkg/mod
 
 before_install:
+  - go generate ./... && git diff --exit-code; code=$?; (exit $code)
   - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $GOPATH/bin
   - go mod download
   - go get github.com/mattn/goveralls
 
 script:
-  - go generate ./... && git diff --exit-code; code=$?; (exit $code)
   - golangci-lint run ./...
   - go vet ./...
   - go test -covermode=count -coverprofile=profile.cov ./...
