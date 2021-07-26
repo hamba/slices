@@ -6,7 +6,7 @@ import (
 
 type intersectFn func(sptr, optr unsafe.Pointer) interface{}
 
-// Intersection returns a slice with the intersection of slice and other.
+// Intersect returns a slice with the intersection of slice and other.
 // When the slices are the same, slice is returned.
 func Intersect(slice, other interface{}) interface{} {
 	fn, ok := intersectOf(slice, other)
