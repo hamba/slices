@@ -1,9 +1,9 @@
 ![Logo](http://svg.wiersma.co.za/hamba/project?title=slices&tag=Slice%20helper%20functions)
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/hamba/slices)](https://goreportcard.com/report/github.com/hamba/slices)
-[![Build Status](https://travis-ci.com/hamba/slices.svg?branch=master)](https://travis-ci.com/hamba/slices)
+[![Build Status](https://github.com/hamba/cmd/actions/workflows/test.yml/badge.svg)](https://github.com/hamba/cmd/actions)
 [![Coverage Status](https://coveralls.io/repos/github/hamba/slices/badge.svg?branch=master)](https://coveralls.io/github/hamba/slices?branch=master)
-[![GoDoc](https://godoc.org/github.com/hamba/slices?status.svg)](https://godoc.org/github.com/hamba/slices)
+[![Go Reference](https://pkg.go.dev/badge/github.com/hamba/slices.svg)](https://pkg.go.dev/github.com/hamba/slices)
 [![GitHub release](https://img.shields.io/github/release/hamba/slices.svg)](https://github.com/hamba/slices/releases)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hamba/slices/master/LICENSE)
 
